@@ -1,0 +1,122 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "shiv.cp.top5distributor",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"connectedpharmacy_t.xsodata": {
+				"uri": "/SSPLHANA_DB/ConnectedPharmacy/xs/connectedpharmacy_t.xsodata/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"dis_data_alias": {
+				"uri": "model/distributor.json",
+				"type": "JSON"
+			},
+			"sdis_data_alias": {
+				"uri": "model/superdistributor.json",
+				"type": "JSON"
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "shiv.cp.top5distributor.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "shiv.cp.top5distributor.i18n.i18n"
+				}
+			},
+			"distributor": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "dis_data_alias"
+			},
+			"sdistributor": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "sdis_data_alias"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "shiv.cp.top5distributor.view",
+				"targetAggregation": "pages",
+				"clearTarget": false
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "Report",
+					"view": "Report",
+					"targetControl": "appId",
+					"targetAggregation": "pages"
+				}
+			]
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "",
+		"_version": "1.1.0"
+	}
+}

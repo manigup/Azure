@@ -1,0 +1,24 @@
+{
+  "mockpreview": {
+    "mockUri": "",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "hcpdeploy": {
+    "account": "c08b13cf5",
+    "name": "cptop5salesview",
+    "lastVersionWeTriedToDeploy": "1"
+  },
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "sap.watt.uitools.ide.web",
+    "com.watt.common.builder.sapui5clientbuild"
+  ],
+  "build": {
+    "buildRequired": false,
+    "targetFolder": "dist",
+    "lastBuildDateTime": "Mon, 26 Jun 2017 17:23:34 GMT"
+  }
+}

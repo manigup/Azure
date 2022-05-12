@@ -1,0 +1,49 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar"
+	controllerName="shiv.cp.top5distributor.controller.Report" xmlns:sui="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" class="sapUiSizeCompact">
+	<Page title="BE Sales View">
+		<content>
+			<fb:FilterBar showFilterConfiguration="false" showClearOnFB="true" search="onSearch" clear="onReset">
+				<fb:filterItems>
+					<fb:FilterItem name="A" label="Selection Criteria" mandatory="true">
+						<fb:control>
+							<RadioButtonGroup select="onSelect" id="selRBGrpId">
+								<buttons>
+									<RadioButton id="distRBId" selected="true" text="Top 5 Distributor"/>
+									<RadioButton id="superDistRBId" selected="false" text="Top 5 Super Distributor"/>
+								</buttons>
+							</RadioButtonGroup>
+						</fb:control>
+					</fb:FilterItem>
+				</fb:filterItems>
+			</fb:FilterBar>
+			<sui:ChartContainer id="idChartContainer" showFullScreen="true" showPersonalization="true" autoAdjustHeight="false" showLegend="true">
+				<sui:content>
+					<sui:ChartContainerContent icon="sap-icon://line-chart" title="Line Chart">
+						<sui:content>
+							<!--<viz:Popover id="idPopOver"></viz:Popover>-->
+							<viz:VizFrame id="idVizFrame"
+								vizProperties="{title:{visible:false},plotArea:{dataLabel:{visible:true}},valueAxis:{title:{visible:true,text:'Net Amount'}},categoryAxis:{title:{visible:true,text:'Business Entity'}}}"
+								vizType='column'>
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{distributor>/}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="BE" value="{distributor>BENAM}"/>
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="Sales Amount" value="{distributor>NetAmount}"/>
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Sales Amount"/>
+									<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="BE"/>
+								</viz:feeds>
+							</viz:VizFrame>
+						</sui:content>
+					</sui:ChartContainerContent>
+				</sui:content>
+			</sui:ChartContainer>
+		</content>
+	</Page>
+</mvc:View>
