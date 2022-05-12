@@ -1,0 +1,1532 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ConnectedPharmacy.xs.connectedpharmacy_t">
+            <EntityType Name="PRheadType">
+                <Key>
+                    <PropertyRef Name="PRNUM"/>
+                    <PropertyRef Name="PRFY"/>
+                </Key>
+                <Property Name="PRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PRTXT" Type="Edm.String" MaxLength="40"/>
+                <Property Name="PRDAT" Type="Edm.DateTime"/>
+                <Property Name="PRUSR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PRTYP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="RELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="APVTEXT" Type="Edm.String" MaxLength="100"/>
+                <NavigationProperty Name="PRHeadNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.PRHeadNavType" FromRole="PRheadPrincipal" ToRole="PRMasterDependent"/>
+            </EntityType>
+            <EntityType Name="PRMasterType">
+                <Key>
+                    <PropertyRef Name="PRNUM"/>
+                    <PropertyRef Name="PRFY"/>
+                    <PropertyRef Name="PRITM"/>
+                    <PropertyRef Name="ADNUM_P"/>
+                </Key>
+                <Property Name="PRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PRITM" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="PRTYP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="PRTXT" Type="Edm.String" MaxLength="40"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="RELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="RELSGY" Type="Edm.String" MaxLength="2"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="CLASS" Type="Edm.String" MaxLength="20"/>
+                <Property Name="VENDNUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="DESC_P" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM_P" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="SELLPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="SCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PURPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="PCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="MGDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MCDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="APVTEXT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="AQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="AUOM" Type="Edm.String" MaxLength="3"/>
+                <NavigationProperty Name="DelAddNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.DelAddNavType" FromRole="PRMasterPrincipal" ToRole="DelAddDependent"/>
+            </EntityType>
+            <EntityType Name="DelAddType">
+                <Key>
+                    <PropertyRef Name="ADNUM"/>
+                    <PropertyRef Name="BENUM"/>
+                </Key>
+                <Property Name="ADNUM" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PCODE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MOBILE" Type="Edm.String" MaxLength="16"/>
+                <Property Name="TELEF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="FAX" Type="Edm.String" MaxLength="35"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+            </EntityType>
+            <EntityType Name="PRTypeType">
+                <Key>
+                    <PropertyRef Name="PRTYP"/>
+                </Key>
+                <Property Name="PRTYP" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="OpenPRheadType">
+                <Key>
+                    <PropertyRef Name="PRNUM"/>
+                    <PropertyRef Name="PRFY"/>
+                </Key>
+                <Property Name="PRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PRTXT" Type="Edm.String" MaxLength="40"/>
+                <Property Name="PRDAT" Type="Edm.DateTime"/>
+                <Property Name="PRUSR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PRTYP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="VENDNUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <NavigationProperty Name="OpenPRHeadNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.OpenPRHeadNavType" FromRole="OpenPRheadPrincipal" ToRole="PRMasterDependent"/>
+            </EntityType>
+            <EntityType Name="PRWorkItemType">
+                <Key>
+                    <PropertyRef Name="PRNUM"/>
+                    <PropertyRef Name="PRFY"/>
+                </Key>
+                <Property Name="PRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PRTXT" Type="Edm.String" MaxLength="40"/>
+                <Property Name="PRDAT" Type="Edm.DateTime"/>
+                <Property Name="PRUSR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PRTYP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="APVTEXT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <NavigationProperty Name="PRWINav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.PRWINavType" FromRole="PRWorkItemPrincipal" ToRole="PRMasterDependent"/>
+            </EntityType>
+            <EntityType Name="AccGrpType">
+                <Key>
+                    <PropertyRef Name="ACGRP"/>
+                    <PropertyRef Name="BENUM"/>
+                </Key>
+                <Property Name="ACGRP" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ACTYP" Type="Edm.String" MaxLength="2"/>
+                <Property Name="COA" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+            </EntityType>
+            <EntityType Name="COAType">
+                <Key>
+                    <PropertyRef Name="COA"/>
+                    <PropertyRef Name="BENUM"/>
+                </Key>
+                <Property Name="COA" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="INTRANGE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="EXRANGE" Type="Edm.String" MaxLength="1"/>
+                <Property Name="FROM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="TO" Type="Edm.String" MaxLength="10"/>
+                <Property Name="LAST" Type="Edm.String" MaxLength="10"/>
+            </EntityType>
+            <EntityType Name="CurrencyType">
+                <Key>
+                    <PropertyRef Name="CUKY"/>
+                </Key>
+                <Property Name="DESC" Type="Edm.String" MaxLength="3"/>
+                <Property Name="CUKY" Type="Edm.String" Nullable="false" MaxLength="5"/>
+            </EntityType>
+            <EntityType Name="ItemROStockType">
+                <Key>
+                    <PropertyRef Name="ITEM"/>
+                    <PropertyRef Name="MONTH"/>
+                    <PropertyRef Name="MBENUM"/>
+                    <PropertyRef Name="DBENUM"/>
+                    <PropertyRef Name="MAPITEM"/>
+                </Key>
+                <Property Name="ITEM" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="MONTH" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ROLEVEL" Type="Edm.Int32"/>
+                <Property Name="MBENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DBENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="MAPITEM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ISTOCK" Type="Edm.Decimal" Precision="13" Scale="3"/>
+            </EntityType>
+            <EntityType Name="LOBType">
+                <Key>
+                    <PropertyRef Name="LOBCODE"/>
+                </Key>
+                <Property Name="LOBCODE" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="COA" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+            </EntityType>
+            <EntityType Name="GLMasterType">
+                <Key>
+                    <PropertyRef Name="HKONT"/>
+                </Key>
+                <Property Name="HKONT" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="ACGRP" Type="Edm.String" MaxLength="10"/>
+                <Property Name="COA" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DESC_A" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ACTYP" Type="Edm.String" MaxLength="2"/>
+                <Property Name="DESC_C" Type="Edm.String" MaxLength="30"/>
+                <Property Name="DESC_AT" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="CustomerType">
+                <Key>
+                    <PropertyRef Name="CUSTNUM"/>
+                </Key>
+                <Property Name="CUSTNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="TAX" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PAN" Type="Edm.String" MaxLength="10"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="HKONT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BANK" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IFSC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BRANCH" Type="Edm.String" MaxLength="1"/>
+                <Property Name="HEADCUST" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BILLHEAD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="BILLSELF" Type="Edm.String" MaxLength="1"/>
+                <Property Name="SHIPADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="TYPE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PAYTERM" Type="Edm.String" MaxLength="1"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="CBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="GST" Type="Edm.String" MaxLength="20"/>
+                <Property Name="TAXCLASS" Type="Edm.String" MaxLength="2"/>
+                <Property Name="RISK" Type="Edm.String" MaxLength="4"/>
+                <Property Name="CREDIT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+            </EntityType>
+            <EntityType Name="VendorType">
+                <Key>
+                    <PropertyRef Name="VENDNUM"/>
+                </Key>
+                <Property Name="VENDNUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="TAX" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PAN" Type="Edm.String" MaxLength="10"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="HKONT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BANK" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IFSC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PAYTERM" Type="Edm.String" MaxLength="1"/>
+                <Property Name="BRANCH" Type="Edm.String" MaxLength="1"/>
+                <Property Name="HEADCUST" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BILLHEAD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="BILLSELF" Type="Edm.String" MaxLength="1"/>
+                <Property Name="SHIPADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="GST" Type="Edm.String" MaxLength="20"/>
+                <Property Name="TAXCLASS" Type="Edm.String" MaxLength="2"/>
+                <Property Name="TELEF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="FAX" Type="Edm.String" MaxLength="35"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PCODE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MOBILE" Type="Edm.String" MaxLength="16"/>
+            </EntityType>
+            <EntityType Name="AcTypType">
+                <Key>
+                    <PropertyRef Name="ACTYP"/>
+                </Key>
+                <Property Name="ACTYP" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="DocTypType">
+                <Key>
+                    <PropertyRef Name="DOCTYP"/>
+                </Key>
+                <Property Name="DOCTYP" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="ItemFormType">
+                <Key>
+                    <PropertyRef Name="ITEM"/>
+                </Key>
+                <Property Name="ITEM" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="FORMNUM" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="HAZARDOUS" Type="Edm.String" MaxLength="1"/>
+                <Property Name="PRESREQ" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="BusinessEntityType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="BETYP" Type="Edm.String" MaxLength="2"/>
+                <Property Name="BENAM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="GST" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IPD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OPD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EXCHANGE" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EAN" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="COSTCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="LOBCODE" Type="Edm.String" MaxLength="3"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PCODE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MOBILE" Type="Edm.String" MaxLength="16"/>
+                <Property Name="TELEF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="FAX" Type="Edm.String" MaxLength="35"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="AcctypeType">
+                <Key>
+                    <PropertyRef Name="ACTYP"/>
+                </Key>
+                <Property Name="ACTYP" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="UomType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="UOM"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="UOM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IUOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="EUOM" Type="Edm.String" MaxLength="6"/>
+            </EntityType>
+            <EntityType Name="ItemMasterType">
+                <Key>
+                    <PropertyRef Name="ITEM"/>
+                    <PropertyRef Name="MBENUM"/>
+                </Key>
+                <Property Name="ITEM" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="40"/>
+                <Property Name="CLASS" Type="Edm.String" MaxLength="20"/>
+                <Property Name="EANNUM" Type="Edm.String" MaxLength="20"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MBENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HSN_SAC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="TAXIND" Type="Edm.String" MaxLength="2"/>
+                <Property Name="PHARMA" Type="Edm.String" MaxLength="1"/>
+                <Property Name="SHELFLIFE" Type="Edm.Decimal" Precision="4" Scale="0"/>
+                <Property Name="SHELFLIFEUNIT" Type="Edm.String" MaxLength="6"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="MCLASS" Type="Edm.String" MaxLength="4"/>
+                <Property Name="MGROUP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="DATEFROM" Type="Edm.DateTime"/>
+                <Property Name="DATETO" Type="Edm.DateTime"/>
+                <Property Name="MRP" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SELLPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="SCURR" Type="Edm.String" MaxLength="5"/>
+            </EntityType>
+            <EntityType Name="PrctrAddType">
+                <Key>
+                    <PropertyRef Name="PRCTR"/>
+                </Key>
+                <Property Name="PRCTR" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PCODE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MOBILE" Type="Edm.String" MaxLength="16"/>
+                <Property Name="TELEF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="FAX" Type="Edm.String" MaxLength="35"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="CostctrAddType">
+                <Key>
+                    <PropertyRef Name="COSTCTR"/>
+                </Key>
+                <Property Name="COSTCTR" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CUKY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PCODE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MOBILE" Type="Edm.String" MaxLength="16"/>
+                <Property Name="TELEF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="FAX" Type="Edm.String" MaxLength="35"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="HBMasterType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="HBKID"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HBKID" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="BANKS" Type="Edm.String" MaxLength="3"/>
+                <Property Name="BANKL" Type="Edm.String" MaxLength="15"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="ACHeaderType">
+                <Key>
+                    <PropertyRef Name="FINUM"/>
+                    <PropertyRef Name="FIFY"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="DOCTYP" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DOCDATE" Type="Edm.DateTime"/>
+                <Property Name="POSTPERIO" Type="Edm.String" MaxLength="2"/>
+                <Property Name="ENTDATE" Type="Edm.DateTime"/>
+                <Property Name="CHNGDBY" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CHNGDON" Type="Edm.DateTime"/>
+                <Property Name="REF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="DOCHDRTXT" Type="Edm.String" MaxLength="25"/>
+                <Property Name="TRNSDATE" Type="Edm.DateTime"/>
+                <Property Name="REVFLAG" Type="Edm.String" MaxLength="1"/>
+                <Property Name="REVDATE" Type="Edm.DateTime"/>
+                <Property Name="REF1_HD" Type="Edm.String" MaxLength="20"/>
+                <Property Name="REF2_HD" Type="Edm.String" MaxLength="20"/>
+                <Property Name="FINUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="POSDATE" Type="Edm.DateTime"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="FIFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="RFINUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="RFIFY" Type="Edm.String" MaxLength="4"/>
+                <NavigationProperty Name="ACItemNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.ACItemNavType" FromRole="ACHeaderPrincipal" ToRole="ACItemDependent"/>
+            </EntityType>
+            <EntityType Name="ACItemType">
+                <Key>
+                    <PropertyRef Name="LINEITEM"/>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="FIFY"/>
+                    <PropertyRef Name="FINUM"/>
+                </Key>
+                <Property Name="LINEITEM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="PRFTLOSS" Type="Edm.String" MaxLength="1"/>
+                <Property Name="BALSHEET" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OFFACCTYPE" Type="Edm.String" MaxLength="3"/>
+                <Property Name="OFFSETACC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CLRDOCNO" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CLRFLAG" Type="Edm.String" MaxLength="1"/>
+                <Property Name="HBKID" Type="Edm.String" MaxLength="5"/>
+                <Property Name="CUSTNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="VENDNUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="MATERIAL" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POSNR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="VBELN" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POTXT" Type="Edm.String" MaxLength="30"/>
+                <Property Name="POITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="INVREF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="CHNGDON" Type="Edm.DateTime"/>
+                <Property Name="CHNGDBY" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ASSIGNMENT" Type="Edm.String" MaxLength="18"/>
+                <Property Name="LOB" Type="Edm.String" MaxLength="4"/>
+                <Property Name="COSTCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="ACTYP" Type="Edm.String" MaxLength="2"/>
+                <Property Name="ACCOUNT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="COMPCURR" Type="Edm.String" MaxLength="3"/>
+                <Property Name="TRNCURR" Type="Edm.String" MaxLength="3"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DCIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="TAXCODE" Type="Edm.String" MaxLength="2"/>
+                <Property Name="AMTTRNCURR" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="AMTCOMPCURR" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="FIFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FINUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="OPENITEM" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="TempSOHeaderType">
+                <Key>
+                    <PropertyRef Name="SONUM"/>
+                    <PropertyRef Name="SOFY"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="SONUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SOFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="AUDAT" Type="Edm.DateTime"/>
+                <Property Name="ERDAT" Type="Edm.DateTime"/>
+                <Property Name="CURKY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="CUSTNUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="BETYP" Type="Edm.String" MaxLength="1"/>
+                <Property Name="RELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="APVTEXT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <NavigationProperty Name="TempSOItemNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.TempSOItemNavType" FromRole="TempSOHeaderPrincipal" ToRole="TempSOItemDependent"/>
+            </EntityType>
+            <EntityType Name="TempSOItemType">
+                <Key>
+                    <PropertyRef Name="SONUM"/>
+                    <PropertyRef Name="SOFY"/>
+                    <PropertyRef Name="POSNR"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="SONUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SOFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="POSNR" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="18"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="18"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="UNIT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CURKY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="POITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="40"/>
+                <Property Name="MGROUP" Type="Edm.String" MaxLength="9"/>
+                <Property Name="MCLASS" Type="Edm.String" MaxLength="4"/>
+                <Property Name="MGDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MCDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="AQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="AUNIT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="STOCK" Type="Edm.Decimal" Precision="13" Scale="5"/>
+                <Property Name="MBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="BETYP" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="SOItem_ItemMType">
+                <Key>
+                    <PropertyRef Name="VBELN"/>
+                    <PropertyRef Name="POSNR"/>
+                </Key>
+                <Property Name="VBELN" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="POSNR" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ITEM" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="UNIT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CURKY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="YEAR" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="3"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="MAPITEM" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="POITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="MBENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="40"/>
+                <Property Name="MRP" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="MCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SELLPR" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="SCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PURPR" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="PCURR" Type="Edm.String" MaxLength="5"/>
+            </EntityType>
+            <EntityType Name="SOMasterType">
+                <Key>
+                    <PropertyRef Name="VBELN"/>
+                </Key>
+                <Property Name="VBELN" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AUDAT" Type="Edm.DateTime"/>
+                <Property Name="ERDAT" Type="Edm.DateTime"/>
+                <Property Name="SOUSER" Type="Edm.String" MaxLength="12"/>
+                <Property Name="NETPRICE" Type="Edm.Decimal" Precision="10" Scale="0"/>
+                <Property Name="CURKY" Type="Edm.String" MaxLength="1"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <Property Name="CUSTNUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="YEAR" Type="Edm.String" MaxLength="4"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+            </EntityType>
+            <EntityType Name="SOItemType">
+                <Key>
+                    <PropertyRef Name="VBELN"/>
+                    <PropertyRef Name="POSNR"/>
+                </Key>
+                <Property Name="VBELN" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="POSNR" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="UNIT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="10" Scale="0"/>
+                <Property Name="CURKY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="YEAR" Type="Edm.String" MaxLength="4"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="VAT_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="CST_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="ST_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="IVQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+            </EntityType>
+            <EntityType Name="POHeaderType">
+                <Key>
+                    <PropertyRef Name="PONUM"/>
+                    <PropertyRef Name="POFY"/>
+                </Key>
+                <Property Name="PONUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PODAT" Type="Edm.DateTime"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="REMARK" Type="Edm.String" MaxLength="100"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="POFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="RELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="APVTEXT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="VBENUM" Type="Edm.String" MaxLength="12"/>
+                <NavigationProperty Name="POItemNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.POItemAscType" FromRole="POHeaderPrincipal" ToRole="POItemDependent"/>
+                <NavigationProperty Name="GRItemNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.GRItemAscType" FromRole="POHeaderPrincipal" ToRole="GRItemDependent"/>
+            </EntityType>
+            <EntityType Name="POItemType">
+                <Key>
+                    <PropertyRef Name="PONUM"/>
+                    <PropertyRef Name="POITM"/>
+                    <PropertyRef Name="POFY"/>
+                </Key>
+                <Property Name="PONUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="POITM" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="DELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="STEXT" Type="Edm.String" MaxLength="50"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PRNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PRITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PRFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="POFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="GRNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="GRFY" Type="Edm.String" MaxLength="10"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="GRQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="DESC_P" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM_P" Type="Edm.String" MaxLength="15"/>
+                <Property Name="SELLPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="SCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PURPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="PCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="MGDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MCDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="AQUAN" Type="Edm.Decimal" Precision="13" Scale="3"/>
+                <Property Name="AUOM" Type="Edm.String" MaxLength="3"/>
+                <NavigationProperty Name="PODelAddNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.PODelAddNavType" FromRole="POItemPrincipal" ToRole="DelAddDependent"/>
+            </EntityType>
+            <EntityType Name="POWIType">
+                <Key>
+                    <PropertyRef Name="PONUM"/>
+                    <PropertyRef Name="POFY"/>
+                </Key>
+                <Property Name="PONUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PODAT" Type="Edm.DateTime"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="REMARK" Type="Edm.String" MaxLength="100"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="POFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="RELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="APVTEXT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="VBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VENDNUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="DELDATE" Type="Edm.DateTime"/>
+                <NavigationProperty Name="POWINav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.POWIAscType" FromRole="POWIPrincipal" ToRole="POItemDependent"/>
+            </EntityType>
+            <EntityType Name="GLMasterCalcType">
+                <Key>
+                    <PropertyRef Name="HKONT"/>
+                </Key>
+                <Property Name="HKONT" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="ACGRP" Type="Edm.String" MaxLength="10"/>
+                <Property Name="COA" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="CLRFLAG" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="VendorInventoryType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="18"/>
+                <Property Name="MBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="DBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DELDAYS" Type="Edm.Int32"/>
+                <Property Name="MINQTY" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MGROUP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="MCLASS" Type="Edm.String" MaxLength="4"/>
+                <Property Name="MGROUP1" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGROUP2" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGROUP3" Type="Edm.String" MaxLength="30"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="40"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CLASS" Type="Edm.String" MaxLength="20"/>
+                <Property Name="EANNUM" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PHARMA" Type="Edm.String" MaxLength="1"/>
+                <Property Name="MCDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENAM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="DESC_UOM" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MRP" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="SELLPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="PURPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="SCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="MCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="DESC_MRP" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DESC_SCURR" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DESC_PCURR" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DESC_TAX" Type="Edm.String" MaxLength="30"/>
+                <Property Name="VBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VENDITEM" Type="Edm.String" MaxLength="10"/>
+            </EntityType>
+            <EntityType Name="VendInventoryType">
+                <Key>
+                    <PropertyRef Name="VBENUM"/>
+                </Key>
+                <Property Name="VBENUM" Type="Edm.String" Nullable="false" DefaultValue="undefined" MaxLength="13"/>
+                <NavigationProperty Name="Results" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.VendInventory_VendorInventoryType" FromRole="VendInventoryPrincipal" ToRole="VendorInventoryDependent"/>
+            </EntityType>
+            <EntityType Name="VendorInvoiceHeader Type">
+                <Key>
+                    <PropertyRef Name="IDNUM"/>
+                </Key>
+                <Property Name="IDNUM" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="IVNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="IVFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="IVTYP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="IVDAT" Type="Edm.DateTime"/>
+                <Property Name="CUNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="FINUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="FIFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="CANCELLED" Type="Edm.String" MaxLength="1"/>
+                <Property Name="REASON" Type="Edm.String" MaxLength="100"/>
+                <Property Name="CIVNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="SOFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="DIS_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="DIS_A" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="ST_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="ST_A" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="FT_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="FT_A" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DIS_T" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="VAT_T" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CST_T" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="ST_T" Type="Edm.Decimal" Precision="13" Scale="0"/>
+            </EntityType>
+            <EntityType Name="VendInvoiceHeaderType">
+                <Key>
+                    <PropertyRef Name="VENDNUM"/>
+                    <PropertyRef Name="PONUM"/>
+                    <PropertyRef Name="POFY"/>
+                    <PropertyRef Name="FLAG"/>
+                </Key>
+                <Property Name="VENDNUM" Type="Edm.String" Nullable="false" DefaultValue="undefined" MaxLength="12"/>
+                <Property Name="PONUM" Type="Edm.String" Nullable="false" DefaultValue="undefined" MaxLength="10"/>
+                <Property Name="POFY" Type="Edm.String" Nullable="false" DefaultValue="undefined" MaxLength="4"/>
+                <Property Name="FLAG" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <NavigationProperty Name="Results" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceHeader_VendorInvoiceHeader Type" FromRole="VendInvoiceHeaderPrincipal" ToRole="VendorInvoiceHeader Dependent"/>
+            </EntityType>
+            <EntityType Name="VendorInvoiceItemType">
+                <Key>
+                    <PropertyRef Name="IDNUM"/>
+                </Key>
+                <Property Name="IDNUM" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="IVNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IVITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="IVFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BATCH" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IVQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="MRP" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="SONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SOITM" Type="Edm.Int32"/>
+                <Property Name="SOFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="GRQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="EXDATE" Type="Edm.DateTime"/>
+            </EntityType>
+            <EntityType Name="VendInvoiceItemType">
+                <Key>
+                    <PropertyRef Name="VENDNUM"/>
+                    <PropertyRef Name="IVNUM"/>
+                    <PropertyRef Name="IVFY"/>
+                    <PropertyRef Name="FLAG"/>
+                </Key>
+                <Property Name="VENDNUM" Type="Edm.String" Nullable="false" DefaultValue="undefined" MaxLength="12"/>
+                <Property Name="IVNUM" Type="Edm.String" Nullable="false" DefaultValue="undefined" MaxLength="10"/>
+                <Property Name="IVFY" Type="Edm.String" Nullable="false" DefaultValue="undefined" MaxLength="4"/>
+                <Property Name="FLAG" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <NavigationProperty Name="Results" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceItem_VendorInvoiceItemType" FromRole="VendInvoiceItemPrincipal" ToRole="VendorInvoiceItemDependent"/>
+            </EntityType>
+            <EntityType Name="InventoryType">
+                <Key>
+                    <PropertyRef Name="ITEM"/>
+                    <PropertyRef Name="MBENUM"/>
+                    <PropertyRef Name="DBENUM"/>
+                    <PropertyRef Name="MAPITEM"/>
+                </Key>
+                <Property Name="ITEM" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="MBENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DBENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="MAPITEM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DELDAYS" Type="Edm.Int32"/>
+                <Property Name="MINQTY" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MGROUP" Type="Edm.String" MaxLength="4"/>
+                <Property Name="MCLASS" Type="Edm.String" MaxLength="4"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="QUAN" Type="Edm.Int32"/>
+                <Property Name="CLASS" Type="Edm.String" MaxLength="20"/>
+                <Property Name="EANNUM" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PHARMA" Type="Edm.String" MaxLength="1"/>
+                <Property Name="MCDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGDESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENAM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="DESC_UOM" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGROUP1" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGROUP2" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGROUP3" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MRP" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="SELLPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="PURPR" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DESC_MRP" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DESC_SCURR" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DESC_PCURR" Type="Edm.String" MaxLength="3"/>
+                <Property Name="SHELFLIFE" Type="Edm.Decimal" Precision="4" Scale="0"/>
+                <Property Name="SHELFLIFEUNIT" Type="Edm.String" MaxLength="6"/>
+                <Property Name="HSN_SAC" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DESC_TAX" Type="Edm.String" MaxLength="30"/>
+                <Property Name="SCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="MCURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PCURR" Type="Edm.String" MaxLength="5"/>
+            </EntityType>
+            <EntityType Name="TAXCodeMasterType">
+                <Key>
+                    <PropertyRef Name="TAXCODE"/>
+                    <PropertyRef Name="BENUM"/>
+                </Key>
+                <Property Name="TAXCODE" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+            </EntityType>
+            <EntityType Name="GRItemType">
+                <Key>
+                    <PropertyRef Name="GRNUM"/>
+                    <PropertyRef Name="GRFY"/>
+                    <PropertyRef Name="GRITM"/>
+                </Key>
+                <Property Name="GRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="GRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="GRITM" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="GRQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="POQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IVQUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MRP" Type="Edm.Decimal" Precision="13" Scale="0"/>
+            </EntityType>
+            <EntityType Name="GRHeaderType">
+                <Key>
+                    <PropertyRef Name="GRNUM"/>
+                    <PropertyRef Name="GRFY"/>
+                    <PropertyRef Name="BENUM"/>
+                </Key>
+                <Property Name="GRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="GRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DOCDAT" Type="Edm.DateTime"/>
+                <Property Name="POSDAT" Type="Edm.DateTime"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="VEHICLE" Type="Edm.String" MaxLength="30"/>
+                <Property Name="TRANSPORTER" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PHONE" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="TAXCODE" Type="Edm.String" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="ItemBatchType">
+                <Key>
+                    <PropertyRef Name="ITEM"/>
+                </Key>
+                <Property Name="ITEM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="MBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="DBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="MRP" Type="Edm.Decimal" Precision="12" Scale="0"/>
+                <Property Name="DISCOUNT" Type="Edm.Decimal" Precision="12" Scale="0"/>
+                <Property Name="VAT" Type="Edm.Decimal" Precision="12" Scale="0"/>
+                <Property Name="CURR" Type="Edm.String" MaxLength="5"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="BATCH" Type="Edm.Int32"/>
+                <Property Name="EXPDATE" Type="Edm.DateTime"/>
+            </EntityType>
+            <EntityType Name="POInvoiceHeaderType">
+                <Key>
+                    <PropertyRef Name="IVNUM"/>
+                    <PropertyRef Name="IVFY"/>
+                </Key>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="PODAT" Type="Edm.DateTime"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="REMARK" Type="Edm.String" MaxLength="100"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="RELIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="APVTEXT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="IVNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="IVFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="IVAMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="IVCURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="IVDAT" Type="Edm.DateTime"/>
+            </EntityType>
+            <EntityType Name="AlternateUOMType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="MAPITEM"/>
+                    <PropertyRef Name="AUOM"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="MAPITEM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AUOM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="NUMERATOR" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="DENOMINATOR" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="UOMType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="UOM"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="UOM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="IUOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="EUOM" Type="Edm.String" MaxLength="6"/>
+            </EntityType>
+            <EntityType Name="ItemClassType">
+                <Key>
+                    <PropertyRef Name="MCLASS"/>
+                    <PropertyRef Name="BENUM"/>
+                </Key>
+                <Property Name="MCLASS" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="ACKEY" Type="Edm.String" MaxLength="4"/>
+            </EntityType>
+            <EntityType Name="ItemGroupType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="MGROUP"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="MGROUP" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="VAT_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="CST_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="ST_P" Type="Edm.Decimal" Precision="5" Scale="0"/>
+            </EntityType>
+            <EntityType Name="PlantType">
+                <Key>
+                    <PropertyRef Name="PLANT"/>
+                    <PropertyRef Name="DBENUM"/>
+                </Key>
+                <Property Name="PLANT" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DBENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="CATEGORY" Type="Edm.String" MaxLength="2"/>
+                <Property Name="AREA" Type="Edm.Decimal" Precision="16" Scale="0"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DELETED" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="TaxClassType">
+                <Key>
+                    <PropertyRef Name="TAXCLASS"/>
+                </Key>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="TAXCLASS" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="ItemsType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="PRDAT"/>
+                    <PropertyRef Name="MAPITEM"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="PRDAT" Type="Edm.DateTime" Nullable="false"/>
+                <Property Name="PRTXT" Type="Edm.String" MaxLength="40"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="12"/>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MAPITEM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="PRICE" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="DESC1" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="CountryType">
+                <Key>
+                    <PropertyRef Name="COUNTRY"/>
+                </Key>
+                <Property Name="COUNTRY" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="COUNTRY_NAME" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="StateType">
+                <Key>
+                    <PropertyRef Name="STATE"/>
+                    <PropertyRef Name="COUNTRY"/>
+                </Key>
+                <Property Name="STATE" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="COUNTRY" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="STATE_NAME" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="BusinessEntityMasterType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="BETYP"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="BETYP" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="BENAM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="GST" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IPD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OPD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EXCHANGE" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EAN" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="COSTCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="LOBCODE" Type="Edm.String" MaxLength="3"/>
+            </EntityType>
+            <EntityType Name="WarehouseType">
+                <Key>
+                    <PropertyRef Name="PLANT"/>
+                </Key>
+                <Property Name="PLANT" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="CATEGORY" Type="Edm.String" MaxLength="2"/>
+                <Property Name="AREA" Type="Edm.Decimal" Precision="16" Scale="0"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DELETED" Type="Edm.String" MaxLength="1"/>
+                <Property Name="DESC1" Type="Edm.String" MaxLength="30"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PCODE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MOBILE" Type="Edm.String" MaxLength="16"/>
+                <Property Name="TELEF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="FAX" Type="Edm.String" MaxLength="35"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="WarehouseCategoryType">
+                <Key>
+                    <PropertyRef Name="CATEGORY"/>
+                </Key>
+                <Property Name="DBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="CATEGORY" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="StorageLocationType">
+                <Key>
+                    <PropertyRef Name="SLOC"/>
+                </Key>
+                <Property Name="SLOC" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="DESC_SLOC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="DBENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="CATEGORY" Type="Edm.String" MaxLength="2"/>
+                <Property Name="AREA" Type="Edm.Decimal" Precision="16" Scale="0"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="DELETED" Type="Edm.String" MaxLength="1"/>
+                <Property Name="DESC1" Type="Edm.String" MaxLength="30"/>
+                <Property Name="STREET" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CITY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="STATE" Type="Edm.String" MaxLength="50"/>
+                <Property Name="COUNTRY" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PCODE" Type="Edm.String" MaxLength="10"/>
+                <Property Name="MOBILE" Type="Edm.String" MaxLength="16"/>
+                <Property Name="TELEF" Type="Edm.String" MaxLength="16"/>
+                <Property Name="FAX" Type="Edm.String" MaxLength="35"/>
+                <Property Name="EMAIL" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="StockType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="BENAM" Type="Edm.String" MaxLength="40"/>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="25"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BATCH" Type="Edm.String" MaxLength="15"/>
+                <Property Name="EXDATE" Type="Edm.DateTime"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="40"/>
+                <Property Name="M_DESC" Type="Edm.String" MaxLength="40"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="5"/>
+            </EntityType>
+            <EntityType Name="StockInTransitType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="PODAT" Type="Edm.DateTime"/>
+                <Property Name="VENDOR" Type="Edm.String" MaxLength="15"/>
+                <Property Name="Vendor_Name" Type="Edm.String" MaxLength="35"/>
+                <Property Name="SONUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="ERDAT" Type="Edm.DateTime"/>
+                <Property Name="IVNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="IVDAT" Type="Edm.DateTime"/>
+                <Property Name="GRNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="POSDAT" Type="Edm.DateTime"/>
+                <Property Name="Amount" Type="Edm.Decimal" Precision="13" Scale="5"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="15"/>
+            </EntityType>
+            <EntityType Name="SalesViewType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="Entity_Number" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Invoice_Number" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Invoice_Date" Type="Edm.DateTime"/>
+                <Property Name="Customer_Number" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Fascal_Year" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Cancelled_Invoice_Number" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Sales_order_number" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PO_number" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Net_Amount" Type="Edm.Decimal" Precision="15" Scale="2"/>
+                <Property Name="PO_Financial_Year" Type="Edm.String" MaxLength="4"/>
+                <Property Name="SO_Financial_Year" Type="Edm.String" MaxLength="4"/>
+                <Property Name="Discount_Amount" Type="Edm.Decimal" Precision="10" Scale="2"/>
+                <Property Name="ST_Amount" Type="Edm.Decimal" Precision="10" Scale="2"/>
+                <Property Name="FT_Amount" Type="Edm.Decimal" Precision="10" Scale="2"/>
+                <Property Name="Total_Discount_Amount" Type="Edm.Decimal" Precision="10" Scale="2"/>
+                <Property Name="Total_VAT_Amount" Type="Edm.Decimal" Precision="10" Scale="2"/>
+                <Property Name="Total_CST_Amount" Type="Edm.Decimal" Precision="10" Scale="2"/>
+                <Property Name="Total_ST_Amount" Type="Edm.Decimal" Precision="10" Scale="2"/>
+                <Property Name="Invoice_Item" Type="Edm.String" MaxLength="25"/>
+                <Property Name="Manufacturer_Item_no" Type="Edm.String" MaxLength="25"/>
+                <Property Name="Batch" Type="Edm.String" MaxLength="15"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Precision="5" Scale="0"/>
+                <Property Name="Base_Unit_of_Measure" Type="Edm.String" MaxLength="5"/>
+                <Property Name="Customer_Name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="30"/>
+                <Property Name="City" Type="Edm.String" MaxLength="30"/>
+                <Property Name="State" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Item" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BENAM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="BETYP" Type="Edm.String" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="GRHeadType">
+                <Key>
+                    <PropertyRef Name="GRNUM"/>
+                    <PropertyRef Name="GRFY"/>
+                </Key>
+                <Property Name="GRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="GRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DOCDAT" Type="Edm.DateTime"/>
+                <Property Name="POSDAT" Type="Edm.DateTime"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VEHICLE" Type="Edm.String" MaxLength="30"/>
+                <Property Name="TRANSPORTER" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PHONE" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="2"/>
+                <Property Name="TAXCODE" Type="Edm.String" MaxLength="2"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="CANCELLED" Type="Edm.String" MaxLength="1"/>
+                <Property Name="RGRNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="RGRFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
+                <NavigationProperty Name="GRNav" Relationship="ConnectedPharmacy.xs.connectedpharmacy_t.GRNavType" FromRole="GRHeadPrincipal" ToRole="GRItmDependent"/>
+            </EntityType>
+            <EntityType Name="GRItmType">
+                <Key>
+                    <PropertyRef Name="GRNUM"/>
+                    <PropertyRef Name="GRFY"/>
+                    <PropertyRef Name="GRITM"/>
+                </Key>
+                <Property Name="MAPITEM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PLANT" Type="Edm.String" MaxLength="4"/>
+                <Property Name="BATCH" Type="Edm.Int32"/>
+                <Property Name="SLOC" Type="Edm.String" MaxLength="3"/>
+                <Property Name="EXDATE" Type="Edm.DateTime"/>
+                <Property Name="GRNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="GRFY" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="GRITM" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="POSDAT" Type="Edm.DateTime"/>
+                <Property Name="DCIND" Type="Edm.String" MaxLength="1"/>
+                <Property Name="BENUM" Type="Edm.String" MaxLength="12"/>
+                <Property Name="QUAN" Type="Edm.Decimal" Precision="13" Scale="3"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3"/>
+                <Property Name="SSLOC" Type="Edm.String" MaxLength="3"/>
+                <Property Name="RACK" Type="Edm.String" MaxLength="6"/>
+                <Property Name="SHELF" Type="Edm.String" MaxLength="4"/>
+                <Property Name="PONUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="POITM" Type="Edm.String" MaxLength="5"/>
+                <Property Name="POFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="IVNUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IVITM" Type="Edm.Byte"/>
+                <Property Name="FINUM" Type="Edm.String" MaxLength="10"/>
+                <Property Name="FIFY" Type="Edm.String" MaxLength="4"/>
+                <Property Name="DESC" Type="Edm.String" MaxLength="30"/>
+                <Property Name="DESC1" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="CustomerInvoiceType">
+                <Key>
+                    <PropertyRef Name="CUNUM"/>
+                </Key>
+                <Property Name="CUNUM" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AMOUNT" Type="Edm.Decimal" Precision="13" Scale="0"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+            </EntityType>
+            <EntityType Name="BEMasterType">
+                <Key>
+                    <PropertyRef Name="BENUM"/>
+                    <PropertyRef Name="BETYP"/>
+                </Key>
+                <Property Name="BENUM" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="BETYP" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="BENAM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="ADNUM" Type="Edm.String" MaxLength="15"/>
+                <Property Name="GST" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IPD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OPD" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EXCHANGE" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EAN" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+                <Property Name="PRCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="COSTCTR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="LOBCODE" Type="Edm.String" MaxLength="3"/>
+            </EntityType>
+            <Association Name="DelAddNavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.PRMasterType" Role="PRMasterPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.DelAddType" Role="DelAddDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="PRHeadNavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.PRheadType" Role="PRheadPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.PRMasterType" Role="PRMasterDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="OpenPRHeadNavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.OpenPRheadType" Role="OpenPRheadPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.PRMasterType" Role="PRMasterDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="PRWINavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.PRWorkItemType" Role="PRWorkItemPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.PRMasterType" Role="PRMasterDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="ACItemNavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.ACHeaderType" Role="ACHeaderPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.ACItemType" Role="ACItemDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="TempSOItemNavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.TempSOHeaderType" Role="TempSOHeaderPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.TempSOItemType" Role="TempSOItemDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="POItemAscType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.POHeaderType" Role="POHeaderPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.POItemType" Role="POItemDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="PODelAddNavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.POItemType" Role="POItemPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.DelAddType" Role="DelAddDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="POWIAscType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.POWIType" Role="POWIPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.POItemType" Role="POItemDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="VendInventory_VendorInventoryType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.VendInventoryType" Role="VendInventoryPrincipal" Multiplicity="*"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.VendorInventoryType" Role="VendorInventoryDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="VendInvoiceHeader_VendorInvoiceHeader Type">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceHeaderType" Role="VendInvoiceHeaderPrincipal" Multiplicity="*"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.VendorInvoiceHeader Type" Role="VendorInvoiceHeader Dependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="VendInvoiceItem_VendorInvoiceItemType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceItemType" Role="VendInvoiceItemPrincipal" Multiplicity="*"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.VendorInvoiceItemType" Role="VendorInvoiceItemDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="GRItemAscType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.POHeaderType" Role="POHeaderPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.GRItemType" Role="GRItemDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="GRNavType">
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.GRHeadType" Role="GRHeadPrincipal" Multiplicity="1"/>
+                <End Type="ConnectedPharmacy.xs.connectedpharmacy_t.GRItmType" Role="GRItmDependent" Multiplicity="*"/>
+            </Association>
+            <EntityContainer Name="connectedpharmacy_t" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="PRhead" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.PRheadType"/>
+                <EntitySet Name="PRMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.PRMasterType"/>
+                <EntitySet Name="DelAdd" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.DelAddType"/>
+                <EntitySet Name="PRType" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.PRTypeType"/>
+                <EntitySet Name="OpenPRhead" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.OpenPRheadType"/>
+                <EntitySet Name="PRWorkItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.PRWorkItemType"/>
+                <EntitySet Name="AccGrp" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.AccGrpType"/>
+                <EntitySet Name="COA" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.COAType"/>
+                <EntitySet Name="Currency" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.CurrencyType"/>
+                <EntitySet Name="ItemROStock" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ItemROStockType"/>
+                <EntitySet Name="LOB" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.LOBType"/>
+                <EntitySet Name="GLMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.GLMasterType"/>
+                <EntitySet Name="Customer" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.CustomerType"/>
+                <EntitySet Name="Vendor" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.VendorType"/>
+                <EntitySet Name="AcTyp" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.AcTypType"/>
+                <EntitySet Name="DocTyp" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.DocTypType"/>
+                <EntitySet Name="ItemForm" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ItemFormType"/>
+                <EntitySet Name="BusinessEntity" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.BusinessEntityType"/>
+                <EntitySet Name="Acctype" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.AcctypeType"/>
+                <EntitySet Name="Uom" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.UomType"/>
+                <EntitySet Name="ItemMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ItemMasterType"/>
+                <EntitySet Name="PrctrAdd" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.PrctrAddType"/>
+                <EntitySet Name="CostctrAdd" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.CostctrAddType"/>
+                <EntitySet Name="HBMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.HBMasterType"/>
+                <EntitySet Name="ACHeader" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ACHeaderType"/>
+                <EntitySet Name="ACItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ACItemType"/>
+                <EntitySet Name="TempSOHeader" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.TempSOHeaderType"/>
+                <EntitySet Name="TempSOItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.TempSOItemType"/>
+                <EntitySet Name="SOItem_ItemM" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.SOItem_ItemMType"/>
+                <EntitySet Name="SOMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.SOMasterType"/>
+                <EntitySet Name="SOItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.SOItemType"/>
+                <EntitySet Name="POHeader" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.POHeaderType"/>
+                <EntitySet Name="POItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.POItemType"/>
+                <EntitySet Name="POWI" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.POWIType"/>
+                <EntitySet Name="GLMasterCalc" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.GLMasterCalcType"/>
+                <EntitySet Name="VendorInventory" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.VendorInventoryType"/>
+                <EntitySet Name="VendInventory" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.VendInventoryType"/>
+                <EntitySet Name="VendorInvoiceHeader " EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.VendorInvoiceHeader Type"/>
+                <EntitySet Name="VendInvoiceHeader" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceHeaderType"/>
+                <EntitySet Name="VendorInvoiceItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.VendorInvoiceItemType"/>
+                <EntitySet Name="VendInvoiceItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceItemType"/>
+                <EntitySet Name="Inventory" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.InventoryType"/>
+                <EntitySet Name="TAXCodeMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.TAXCodeMasterType"/>
+                <EntitySet Name="GRItem" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.GRItemType"/>
+                <EntitySet Name="GRHeader" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.GRHeaderType"/>
+                <EntitySet Name="ItemBatch" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ItemBatchType"/>
+                <EntitySet Name="POInvoiceHeader" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.POInvoiceHeaderType"/>
+                <EntitySet Name="AlternateUOM" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.AlternateUOMType"/>
+                <EntitySet Name="UOM" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.UOMType"/>
+                <EntitySet Name="ItemClass" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ItemClassType"/>
+                <EntitySet Name="ItemGroup" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ItemGroupType"/>
+                <EntitySet Name="Plant" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.PlantType"/>
+                <EntitySet Name="TaxClass" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.TaxClassType"/>
+                <EntitySet Name="Items" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.ItemsType"/>
+                <EntitySet Name="Country" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.CountryType"/>
+                <EntitySet Name="State" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.StateType"/>
+                <EntitySet Name="BusinessEntityMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.BusinessEntityMasterType"/>
+                <EntitySet Name="Warehouse" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.WarehouseType"/>
+                <EntitySet Name="WarehouseCategory" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.WarehouseCategoryType"/>
+                <EntitySet Name="StorageLocation" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.StorageLocationType"/>
+                <EntitySet Name="Stock" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.StockType"/>
+                <EntitySet Name="StockInTransit" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.StockInTransitType"/>
+                <EntitySet Name="SalesView" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.SalesViewType"/>
+                <EntitySet Name="GRHead" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.GRHeadType"/>
+                <EntitySet Name="GRItm" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.GRItmType"/>
+                <EntitySet Name="CustomerInvoice" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.CustomerInvoiceType"/>
+                <EntitySet Name="BEMaster" EntityType="ConnectedPharmacy.xs.connectedpharmacy_t.BEMasterType"/>
+                <AssociationSet Name="DelAddNav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.DelAddNavType">
+                    <End Role="PRMasterPrincipal" EntitySet="PRMaster"/>
+                    <End Role="DelAddDependent" EntitySet="DelAdd"/>
+                </AssociationSet>
+                <AssociationSet Name="PRHeadNav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.PRHeadNavType">
+                    <End Role="PRheadPrincipal" EntitySet="PRhead"/>
+                    <End Role="PRMasterDependent" EntitySet="PRMaster"/>
+                </AssociationSet>
+                <AssociationSet Name="OpenPRHeadNav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.OpenPRHeadNavType">
+                    <End Role="OpenPRheadPrincipal" EntitySet="OpenPRhead"/>
+                    <End Role="PRMasterDependent" EntitySet="PRMaster"/>
+                </AssociationSet>
+                <AssociationSet Name="PRWINav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.PRWINavType">
+                    <End Role="PRWorkItemPrincipal" EntitySet="PRWorkItem"/>
+                    <End Role="PRMasterDependent" EntitySet="PRMaster"/>
+                </AssociationSet>
+                <AssociationSet Name="ACItemNav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.ACItemNavType">
+                    <End Role="ACHeaderPrincipal" EntitySet="ACHeader"/>
+                    <End Role="ACItemDependent" EntitySet="ACItem"/>
+                </AssociationSet>
+                <AssociationSet Name="TempSOItemNav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.TempSOItemNavType">
+                    <End Role="TempSOHeaderPrincipal" EntitySet="TempSOHeader"/>
+                    <End Role="TempSOItemDependent" EntitySet="TempSOItem"/>
+                </AssociationSet>
+                <AssociationSet Name="POItemAsc" Association="ConnectedPharmacy.xs.connectedpharmacy_t.POItemAscType">
+                    <End Role="POHeaderPrincipal" EntitySet="POHeader"/>
+                    <End Role="POItemDependent" EntitySet="POItem"/>
+                </AssociationSet>
+                <AssociationSet Name="PODelAddNav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.PODelAddNavType">
+                    <End Role="POItemPrincipal" EntitySet="POItem"/>
+                    <End Role="DelAddDependent" EntitySet="DelAdd"/>
+                </AssociationSet>
+                <AssociationSet Name="POWIAsc" Association="ConnectedPharmacy.xs.connectedpharmacy_t.POWIAscType">
+                    <End Role="POWIPrincipal" EntitySet="POWI"/>
+                    <End Role="POItemDependent" EntitySet="POItem"/>
+                </AssociationSet>
+                <AssociationSet Name="VendInventory_VendorInventory" Association="ConnectedPharmacy.xs.connectedpharmacy_t.VendInventory_VendorInventoryType">
+                    <End Role="VendInventoryPrincipal" EntitySet="VendInventory"/>
+                    <End Role="VendorInventoryDependent" EntitySet="VendorInventory"/>
+                </AssociationSet>
+                <AssociationSet Name="VendInvoiceHeader_VendorInvoiceHeader " Association="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceHeader_VendorInvoiceHeader Type">
+                    <End Role="VendInvoiceHeaderPrincipal" EntitySet="VendInvoiceHeader"/>
+                    <End Role="VendorInvoiceHeader Dependent" EntitySet="VendorInvoiceHeader "/>
+                </AssociationSet>
+                <AssociationSet Name="VendInvoiceItem_VendorInvoiceItem" Association="ConnectedPharmacy.xs.connectedpharmacy_t.VendInvoiceItem_VendorInvoiceItemType">
+                    <End Role="VendInvoiceItemPrincipal" EntitySet="VendInvoiceItem"/>
+                    <End Role="VendorInvoiceItemDependent" EntitySet="VendorInvoiceItem"/>
+                </AssociationSet>
+                <AssociationSet Name="GRItemAsc" Association="ConnectedPharmacy.xs.connectedpharmacy_t.GRItemAscType">
+                    <End Role="POHeaderPrincipal" EntitySet="POHeader"/>
+                    <End Role="GRItemDependent" EntitySet="GRItem"/>
+                </AssociationSet>
+                <AssociationSet Name="GRNav" Association="ConnectedPharmacy.xs.connectedpharmacy_t.GRNavType">
+                    <End Role="GRHeadPrincipal" EntitySet="GRHead"/>
+                    <End Role="GRItmDependent" EntitySet="GRItm"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
