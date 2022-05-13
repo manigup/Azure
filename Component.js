@@ -3,8 +3,8 @@ sap.ui.define([
 	"sap/ui/Device",
 	"shiv/cp/top5distributor/model/models",
 	"sap/m/routing/RouteMatchedHandler",
-		"shiv/cp/top5distributor/Common"
-], function(UIComponent, Device, models, RouteMatchedHandler,Common) {
+	"shiv/cp/top5distributor/Common"
+], function (UIComponent, Device, models, RouteMatchedHandler, Common) {
 	"use strict";
 
 	return UIComponent.extend("shiv.cp.top5distributor.Component", {
@@ -18,7 +18,7 @@ sap.ui.define([
 		 * @public
 		 * @override
 		 */
-		init: function() {
+		init: function () {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 			var param = {
